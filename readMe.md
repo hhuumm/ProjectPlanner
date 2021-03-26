@@ -1,6 +1,6 @@
 This is the PROJECT PLANNER,
 
-A GA UNIT 2 PROJECT using the mongoose,mongo,express and EJS
+A GA UNIT 2 PROJECT using mongoose,mongo,express and EJS
 
 
 The Idea is that every project consists of tasks, and each task can be broken down into more tasks,
