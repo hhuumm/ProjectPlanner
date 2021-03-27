@@ -1,24 +1,55 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const passport= require("passport");
+const session = require("express-session");
+const methodOverride= require("method-override")
 
-var indexRouter = require('./routes/index');
-var authRouter = require('./routes/auth');
 
-var app = express();
+//load env variables
+require('dotenv').config()
+//create the express app
+const app = express();
+//connect to MongoDB with mongoose
+require("./config/database")
+//load passport
+require("./config/passport")
+//Require routes
+const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
+
+//misc middleware
+app.use(methodOverride('_method'))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// session middleware
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: "lax",
+    },
+  })
+);
+
+// passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Router Middleware
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 

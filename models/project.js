@@ -5,6 +5,7 @@ const projectSchema = new Schema ({
 name:String,
 description:String,
 lead:String,
+tasks:[String]
 
 
 })
