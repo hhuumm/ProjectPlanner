@@ -18,6 +18,7 @@ require("./config/passport")
 //Require routes
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const projectRouter= require('./routes/projects');
 
 
 // view engine setup
@@ -52,7 +53,7 @@ app.use(passport.session());
 //Router Middleware
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-
+app.use('/project',projectRouter);``
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
