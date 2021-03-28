@@ -1,27 +1,47 @@
 const Project = require('../models/project')
-
-
+const User = require('../models/user')
 
 module.exports= {
     userProjects,
-    All
+    All,
+    New:newProjectPage,
+    Create
 }
+function Create(req,res)
+{
+    Project.create(req.body).then(project=>{
+        res.redirect()
+    })
+}
+function newProjectPage (req,res){
 
+    res.render('projects/new',{title:"New Project",user:req.user})
+}
 function userProjects(req,res){
 
-//   Project.findById(req.user._id)
-//   .then(projects=>{
-      
-// })
+Project.find({lead:req.user._id})
+    .then((projects)=>
+    {
+       
+        res.render('projects/userProjects.ejs',{title:"User Projects",user:req.user,projects})
+        
+    })
 
-console.log(req.user)
 
-res.render('projects/userProjects.ejs',{title:"User Projects",user:req.user})
+
 
 }
 
 function All(req,res){
     
-    res.render('projects/allProjects',{title:"All Projects",user:req.user})
+    Project.find({})
+    .then((projects)=>
+    {
+       
+        res.render('projects/userProjects.ejs',{title:"User Projects",user:req.user,projects})
+        
+    })
+
+
 
 }

@@ -1,19 +1,32 @@
-<%- include("../partials/header") %>
+<%- include('../partials/header') %>
+
 
 <main>
-This is the All Projects Page!
+  
+    <br>
+    <%if(projects.length>0){%>
+        <br>All Projects::
+        <%projects.forEach(project=>{%>
 
-
-
-</main>
-
-
-
-
-
-
+            <br>Project Name::<%=project.name%>
 
 
 
 
-<%- include("../partials/footer") %>
+            <%})%>
+        <%}else{%>
+           There are no new projects!
+           <br>
+            <a href="/projects/new">New Project</a>
+        <%}%>%>
+
+    </main>
+
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>

@@ -7,6 +7,7 @@ const userSchema = new Schema(
     email: String,
     avatar: String,
     googleId: String,
+    projects:[String]
   },
   {
     timestamps: true,

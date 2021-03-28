@@ -7,8 +7,6 @@ description:String,
 lead:String,
 tasks:[String],
 finished:Boolean
-
-
 })
 
 
