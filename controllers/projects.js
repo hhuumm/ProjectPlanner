@@ -9,13 +9,19 @@ module.exports= {
 
 function userProjects(req,res){
 
-    console.log("Got to router")
+//   Project.findById(req.user._id)
+//   .then(projects=>{
+      
+// })
+
+console.log(req.user)
+
 res.render('projects/userProjects.ejs',{title:"User Projects",user:req.user})
 
 }
 
 function All(req,res){
-    console.log("Got to router")
+    
     res.render('projects/allProjects',{title:"All Projects",user:req.user})
 
 }

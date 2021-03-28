@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const projectSchema = new Schema ({
+const taskSchema = new Schema ({
 name:String,
 description:String,
 lead:String,
@@ -12,4 +12,4 @@ finished:Boolean
 })
 
 
-module.exports=mongoose.model("Project",projectSchema)
+module.exports=mongoose.model("Task",taskSchema)
