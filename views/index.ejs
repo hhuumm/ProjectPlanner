@@ -6,11 +6,12 @@
 
 <%if(user){%>
   <section class="options">
-    <a href= "/project/<%user._id%>">Projects</a>
+    <body>This is the user id:: <%=user._id%></body><br>
+    <a href= "/projects/<%=user._id%>">Projects</a>
     <br>
     <a href = ""> Tasks </a>
     <br>
-    <a href = "/project"> Browse All Projects</a>
+    <a href = "/projects"> Browse All Projects</a>
     <br>
   </section>
   
