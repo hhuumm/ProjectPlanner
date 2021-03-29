@@ -11,8 +11,7 @@ module.exports= {
 
 function Show(req,res)
 {
-    console.log(req._id)
-    Project.findById(req._id)
+    Project.findById(req.params.ID)
     .then(project=>{
         res.render('projects/show',{title:"Show",project,user:req.user})
     })
@@ -34,10 +33,7 @@ function createProject(req,res)
 
 function newProjectPage (req,res)
 {
-    Project.create(req.body).then(project=>
-        {
-            res.render('projects/new',{title:"New Project",user:req.user})
-        })
+     res.render('projects/new',{title:"New Project",user:req.user}) 
 }
 
 function userProjects(req,res)
