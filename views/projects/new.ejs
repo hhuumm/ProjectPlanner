@@ -2,18 +2,21 @@
 
 <main>
 
-    <form id="new-form" action="/project/" method="POST">
-        <label>Name</label>
+    <form id="new-form" action="/projects/" method="POST">
+        <label>Project Name</label><br>
       <input type="text" name = 'name'>
       <br>
-      <Label>Description</Label>
-      <input type="comment" name ='description'>
-      <br>
-      <label>I am project leader</label>
-      <input type="radio" name ="lead">
-      <br>
+     <label>Description</label>
+     <br>
+      <textarea name="description"
+      rows="10" cols="50"></textarea>
       
-      <input type="submit" value="Buy Ticket">
+      <br>
+      <label>I am project leader <input type="radio" name ="lead"></label>
+     
+      <br>
+
+      <input type="submit" value="Start Project">
 
 
 
