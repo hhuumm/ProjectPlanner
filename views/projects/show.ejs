@@ -4,6 +4,31 @@
 <main>
   
    This is the <%=title%> page for the <%=project.name%>
+   <br>
+   <br>
+   <%if(project.lead){%>
+    <label>Project Lead::<%=user.name%></label>
+    <%}%>
+    <br>
+   <label>Description</label>
+   <p><%=project.description%></p>
+
+
+   <section class="tasks">
+    <%if(project.tasks.length==0){%>
+        <br>There are no tasks!
+
+
+        <%}else{project.tasks.forEach((task)=>{%>
+
+            <label><%=task.name%></label>
+
+            <%})}%>
+
+            <a href="/projects/<%=project._id%>/new">Add Task</a>
+
+
+   </section>
 
     </main>
 

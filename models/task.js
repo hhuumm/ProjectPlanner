@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const taskSchema = new Schema ({
 name:String,
 description:String,
-lead:String,
-tasks:[String],
+parent:mongoose.Schema.Types.ObjectId,
+tasks:[mongoose.Schema.Types.ObjectId],
 finished:Boolean
 
 

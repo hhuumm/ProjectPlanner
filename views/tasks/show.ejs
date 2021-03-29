@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+
+
+<main>
+  
+    This is the <%=title%> page for the <%=task.name%>
+    <br>
+    <br>
+    <label>Description</label>
+    <p><%=task.description%></p>
+ 
+ 
+    <section class="tasks">
+     <%if(task.tasks.length==0){%>
+         <br>There are no sub-tasks!
+ 
+ 
+         <%}else{task.tasks.forEach((task)=>{%>
+ 
+             <label><a href='/projects/task/<%=task._id%>'><%=task.name%></a> </label>
+ 
+             <%})}%>
+ 
+             <a href="/projects/<%=task.parent%>/new">Add Task</a>
+ 
+ 
+    </section>
+ 
+     </main>
+
+
+
+
+<%- include('../partials/footer') %>

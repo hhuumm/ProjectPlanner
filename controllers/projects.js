@@ -1,5 +1,5 @@
-const Project = require('../models/project')
-const User = require('../models/user')
+    const Project = require('../models/project')
+    const User = require('../models/user')
 
 module.exports= {
     userProjects,
@@ -11,15 +11,20 @@ module.exports= {
 
 function Show(req,res)
 {
+    console.log(req.params)
     Project.findById(req.params.ID)
     .then(project=>{
-        res.render('projects/show',{title:"Show",project,user:req.user})
+        res.render('projects/show',{title:"Show",project,ID:req.params.ID,user:req.user})
     })
    
 }
 
 function createProject(req,res)
 {
+    if(req.body.lead)
+    {
+        req.body.lead=req.user._id
+    }
     Project.create(req.body)
     .then
     (   project=>{
@@ -27,7 +32,9 @@ function createProject(req,res)
         {
             console.log("We saving up in hurr")
             res.render('projects/show',{title:"Show",project,user:req.user})
+            
         })
+        
     })
 }
 

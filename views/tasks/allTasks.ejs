@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+
+
+
+<main>
+  
+    <br>
+    <%if(tasks.length>0){%>
+        <br>All Projects::
+        <%tasks.forEach(task=>{%>
+
+            <br>Task Name::<a href='projects/tasks/show/<%=task._id%>'> <%=task.name%>  </a> 
+
+
+
+
+            <%})%>
+        <%}else{%>
+           There are no tasks
+           <br>
+        <%}%>%>
+        <br>
+       
+
+    </main>
+
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>

@@ -1,10 +1,15 @@
 const router = require("express").Router();
 const projectController=require('../controllers/projects')
+const taskController = require('../controllers/tasks')
 
 router.get('/show/:ID', projectController.Show)
+router.get('/task',taskController.ShowAll)
+router.get('/task/:ID',taskController.Show)
+router.get('/:ID/new',taskController.New)
 router.get('/new', projectController.New)
 router.get('/:ID',projectController.userProjects)
 router.get('/',projectController.All)
+router.post('/:ID',taskController.createTask)
 router.post('/', projectController.createProject)
 
 

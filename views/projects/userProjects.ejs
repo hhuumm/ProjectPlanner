@@ -3,27 +3,30 @@
 
 <main>
     This is <%=user.name%>'s Projects Page!
-    <br>
-    <%if(projects.length>0){%>
-        <br>Projects::
-        <%projects.forEach(project=>{%>
-
-            <br>Project Name::<%=project.name%>
-
-
-
-
-            <%})%>
-        <%}else{%>
-            They don't have projects!
-            
-        <%}%>%>
+    
+  
         <br>
-        <a href="/projects/new">Add Project</a>
-    </main>
-
-
-
+        <%if(projects.length>0){%>
+            <br><%=user.name%>'s Projects::
+            <%projects.forEach(project=>{%>
+    
+                <br><a href='projects/show/<%=project._id%>'> <%=project.name%>  </a> 
+    
+    
+    
+    
+                <%})%>
+            <%}else{%>
+                <%=user.name%> has no projects!
+               <br>
+            <%}%>%>
+            <br><br><br>
+            <a href="/projects/new">New Project</a>
+    
+        
+    
+    
+    
 
 
 
