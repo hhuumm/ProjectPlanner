@@ -15,16 +15,18 @@
 
 
    <section class="tasks">
-    <%if(project.tasks.length==0){%>
+    <%if(tasks.length==0){%>
         <br>There are no tasks!
 
 
-        <%}else{project.tasks.forEach((task)=>{%>
+        <%}else{tasks.forEach((task)=>{%>
 
-            <label><%=task.name%></label>
+            <label><a href="/projects/task/<%=task._id%>"><%=task.name%></a></label><br>
 
             <%})}%>
-
+            <br>
+            <br>
+            <br>
             <a href="/projects/<%=project._id%>/new">Add Task</a>
 
 

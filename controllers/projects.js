@@ -1,5 +1,6 @@
     const Project = require('../models/project')
     const User = require('../models/user')
+    const Task = require('../models/task')
 
 module.exports= {
     userProjects,
@@ -14,7 +15,10 @@ function Show(req,res)
     console.log(req.params)
     Project.findById(req.params.ID)
     .then(project=>{
-        res.render('projects/show',{title:"Show",project,ID:req.params.ID,user:req.user})
+        Task.find({parent:req.params.ID}).then(tasks=>{
+            
+            res.render('projects/show',{title:"Show",project,ID:req.params.ID,user:req.user,tasks})
+        })
     })
    
 }

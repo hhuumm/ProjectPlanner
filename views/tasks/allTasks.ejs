@@ -10,11 +10,8 @@
         <br>All Projects::
         <%tasks.forEach(task=>{%>
 
-            <br>Task Name::<a href='projects/tasks/show/<%=task._id%>'> <%=task.name%>  </a> 
-
-
-
-
+            <br>Task Name::<a href='task/<%=task._id%>'> <%=task.name%>  </a> 
+            
             <%})%>
         <%}else{%>
            There are no tasks
