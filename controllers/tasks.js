@@ -35,7 +35,7 @@ function Show(req,res)
         Task.find({parent:req.params.ID})
         .then(tasks=>{
 
-
+            
             
             res.render('tasks/show',{title:"Show",task,tasks,user:req.user})
 
@@ -63,11 +63,12 @@ function createTask(req,res)
                         
                 })
                
-
+                res.render('tasks/show',{title:"TaskPage",task,tasks:[],user:req.user})
             }
 
     )
-    res.redirect('/projects/task/'+id)
+    
+    
         
 
         

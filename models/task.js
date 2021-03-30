@@ -7,7 +7,6 @@ description:String,
 parent:mongoose.Schema.Types.ObjectId,
 finished:Boolean
 
-
 })
 
 
