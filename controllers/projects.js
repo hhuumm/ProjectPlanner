@@ -34,10 +34,11 @@ function createProject(req,res)
     (   project=>{
         project.save((err,project)=>
         {
-            console.log("We saving up in hurr")
-            res.render('projects/show',{title:"Show",project,tasks:project.tasks,user:req.user})
+           
+        console.log("We saving up in hurr")
             
         })
+        res.render('projects/show',{title:"Project Show", user:req.user,project,tasks:project.tasks})
         
     })
 }

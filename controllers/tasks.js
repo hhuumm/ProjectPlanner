@@ -50,7 +50,7 @@ function createTask(req,res)
               
                 task.save((err)=>
                 {
-                   
+                   console.log(err)
                            
                         
                 })
@@ -58,20 +58,25 @@ function createTask(req,res)
             }
         )
 
-        try{
+        try
+            {
                                     
-            res.redirect('projects/tasks/'+id)
-        }
-    catch(err)
-        {
-            console.log(err);
-            try{
+                res.render('tasks/show',{title:'show',task,user:req.user})
+            }
+        catch(err)
+            {
+                console.log(err);
+                try
+                {
 
-                
-                res.redirect('projects/show/'+id)
-            }catch(err){
-                console.log(err)
-                res.redirect('/')}
+                    const project = Project.findById(id)
+                    res.redirect('projects/show',{title:"Project Show",project})
+                }
+                catch(err)
+                {
+                    console.log(err)
+                    res.redirect('/')
+                }
 
             }
 
