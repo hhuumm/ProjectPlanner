@@ -37,7 +37,7 @@ function Show(req,res)
 
             
             
-            res.render('tasks/show',{title:"Show",task,tasks,user:req.user})
+            res.render('tasks/show',{title:"Show",task,tasks,user:req.user,projParent:Project.count({_id: req.params.ID})})
 
         })
 
@@ -63,7 +63,7 @@ function createTask(req,res)
                         
                 })
                
-                res.render('tasks/show',{title:"TaskPage",task,tasks:[],user:req.user})
+                res.render('tasks/show',{title:"TaskPage",task,tasks:[],user:req.user,projParent:Project.count({_id:task.parent})})
             }
 
     )

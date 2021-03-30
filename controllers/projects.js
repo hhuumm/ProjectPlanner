@@ -12,6 +12,14 @@ module.exports= {
 
 function Show(req,res)
 {
+   Project.count({_id:req.params.ID}).then(count=>
+    {
+    if(count<1)
+    {
+        res.redirect(`/projects/task/${req.params.ID}`)
+    }
+
+   })
     
     Project.findById(req.params.ID)
     .then(project=>{
@@ -26,8 +34,9 @@ function Show(req,res)
             res.render('projects/show',{title:"Show",project,ID:req.params.ID,user:req.user,tasks})
         })
     })
-   
 }
+   
+
 
 function createProject(req,res)
 {

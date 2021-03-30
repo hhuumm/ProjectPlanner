@@ -3,7 +3,11 @@
 
 
 <main>
-  
+   
+        <a href ='/projects/show/<%=task.parent%>'>Back</a>
+
+       
+            <br><br>
     This is the <%=title%> page for the <%=task.name%>
     <br>
     <br>
@@ -13,7 +17,7 @@
     <label>Tasks</label>
     <br>
     
- 
+
  
     <section >
      <%if(tasks.length==0){%>
