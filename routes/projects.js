@@ -9,8 +9,8 @@ router.get('/:ID/new',taskController.New)
 router.get('/new', projectController.New)
 router.get('/:ID',projectController.userProjects)
 router.get('/',projectController.All)
-router.post('/:ID',taskController.createTask)
 router.post('/', projectController.createProject)
+router.post('/:ID',taskController.createTask)
 
 
 

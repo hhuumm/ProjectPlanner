@@ -9,20 +9,24 @@
     <br>
     <label>Description</label>
     <p><%=task.description%></p>
+    <br>
+    <label>Tasks</label>
+    <br>
+    
  
  
     <section >
-     <%if(task.tasks.length==0){%>
+     <%if(tasks.length==0){%>
          <br>There are no sub-tasks!
  
  
-         <%}else{task.tasks.forEach((task)=>{%>
+         <%}else{tasks.forEach((t)=>{%>
  
-             <label><a href='/projects/task/<%=task._id%>'><%=task.name%></a> </label>
+             <label><a href='/projects/task/<%=t._id%>'><%=t.name%></a> </label><br>
  
              <%})}%>
  
-             <a href="/projects/<%=task.parent%>/new">Add Task</a>
+             <a href="/projects/<%=task._id%>/new">Add Task</a>
  
  
     </section>

@@ -32,7 +32,14 @@ function Show(req,res)
     console.log(req.params.ID,"\n^^^Object ID")
     Task.findById(req.params.ID).then(task=>{
 
-        res.render('tasks/show',{title:"Show",task,user:req.user})
+        Task.find({parent:req.params.ID})
+        .then(tasks=>{
+
+
+            
+            res.render('tasks/show',{title:"Show",task,tasks,user:req.user})
+
+        })
 
     })
             
@@ -46,7 +53,8 @@ function createTask(req,res)
     Task.create(req.body)
     .then(
         task=>
-            {task.parent=id;
+            {
+                task.parent=id;
               
                 task.save((err)=>
                 {
@@ -54,31 +62,15 @@ function createTask(req,res)
                            
                         
                 })
+               
 
             }
-        )
 
-        try
-            {
-                                    
-                res.render('tasks/show',{title:'show',task,user:req.user})
-            }
-        catch(err)
-            {
-                console.log(err);
-                try
-                {
+    )
+    res.redirect('/projects/task/'+id)
+        
 
-                    const project = Project.findById(id)
-                    res.redirect('projects/show',{title:"Project Show",project})
-                }
-                catch(err)
-                {
-                    console.log(err)
-                    res.redirect('/')
-                }
-
-            }
+        
 
    
 }

@@ -12,11 +12,17 @@ module.exports= {
 
 function Show(req,res)
 {
-    console.log(req.params)
+    
     Project.findById(req.params.ID)
     .then(project=>{
         Task.find({parent:req.params.ID}).then(tasks=>
         {
+            if(!tasks){
+
+                res.render('projects/show',{title:"Show",project,ID:req.params.ID,user:req.user,tasks:[]})
+            
+            }
+                console.log(tasks)
             res.render('projects/show',{title:"Show",project,ID:req.params.ID,user:req.user,tasks})
         })
     })
@@ -30,22 +36,18 @@ function createProject(req,res)
         req.body.lead=req.user._id
     }
     Project.create(req.body)
-    .then
-    (   project=>{
-        project.save((err,project)=>
-        {
-           
-        console.log("We saving up in hurr")
-            
-        })
-        res.render('projects/show',{title:"Project Show", user:req.user,project,tasks:project.tasks})
-        
-    })
+        .then
+        (   (project)=>
+            {
+               res.redirect(`/projects/show/${project._id}`)
+            }
+        )
 }
+
 
 function newProjectPage (req,res)
 {
-     res.render('projects/new',{title:"New Project",user:req.user}) 
+     res.render('projects/new', {title:"New Project",user:req.user,tasks:[]}) 
 }
 
 function userProjects(req,res)
