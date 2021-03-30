@@ -15,8 +15,8 @@ function Show(req,res)
     console.log(req.params)
     Project.findById(req.params.ID)
     .then(project=>{
-        Task.find({parent:req.params.ID}).then(tasks=>{
-            
+        Task.find({parent:req.params.ID}).then(tasks=>
+        {
             res.render('projects/show',{title:"Show",project,ID:req.params.ID,user:req.user,tasks})
         })
     })
@@ -35,7 +35,7 @@ function createProject(req,res)
         project.save((err,project)=>
         {
             console.log("We saving up in hurr")
-            res.render('projects/show',{title:"Show",project,user:req.user})
+            res.render('projects/show',{title:"Show",project,tasks:project.tasks,user:req.user})
             
         })
         
