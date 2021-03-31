@@ -7,35 +7,79 @@ module.exports= {
     All,
     New:newProjectPage,
     createProject,
-    Show
+    Show,
+    Delete:deleteProject
+}
+
+function deleteProject(req,res)
+{
+    Project.findByIdAndDelete(req.params.ID)
+    .then
+    (
+        ()=>
+        {
+            res.redirect('/projects/')
+        }
+    )
+
 }
 
 function Show(req,res)
 {
-   Project.count({_id:req.params.ID}).then(count=>
-    {
-    if(count<1)
-    {
-        res.redirect(`/projects/task/${req.params.ID}`)
-    }
+    //Check and see if we have a project with this ID
+   Task.count({_id:req.params.ID})
+   .then
+   (
+        count=>
+        {
+            //If no project
+            if(count>0)
+            {   //Check and see if we have tasks with this ID
+                //Go to task
+                res.redirect(`/projects/task/${req.params.ID}`) 
+                
+            }
 
-   })
+        }
+   )
+   .catch
+   (
+       err=>
+        {
+           console.log(err)
+        }
+   )
     
     Project.findById(req.params.ID)
-    .then(project=>{
-        Task.find({parent:req.params.ID}).then(tasks=>
+    .then
+    (
+        project=>
         {
-            if(!tasks){
+            Task.find({parent:req.params.ID})
+            .then
+            (
+                tasks=>
+                {
+                    console.log(tasks)
+                    if(tasks.length==0)
+                    {
 
-                res.render('projects/show',{title:"Show",project,ID:req.params.ID,user:req.user,tasks:[]})
-            
-            }
-                console.log(tasks)
-            res.render('projects/show',{title:"Show",project,ID:req.params.ID,user:req.user,tasks})
-        })
-    })
-}
-   
+                        res.render('projects/show',{title:"Show",project,ID:req.params.ID,user:req.user,tasks:[]})
+                    
+                    }
+                    else
+                    {
+                        
+                        res.render('projects/show',{title:"Show",project,ID:req.params.ID,user:req.user,tasks})
+                    }
+                    
+                }
+            )
+        }
+    )
+
+
+}   
 
 
 function createProject(req,res)

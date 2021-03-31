@@ -11,6 +11,9 @@ router.get('/:ID',projectController.userProjects)
 router.get('/',projectController.All)
 router.post('/', projectController.createProject)
 router.post('/:ID',taskController.createTask)
+router.delete('/:ID',projectController.Delete)
+router.delete('/task/:ID',taskController.Delete)
+
 
 
 
