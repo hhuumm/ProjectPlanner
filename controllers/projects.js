@@ -87,6 +87,7 @@ function createProject(req,res)
     if(req.body.lead)
     {
         req.body.lead=req.user._id
+        req.body.leadName=req.user.name
     }
     Project.create(req.body)
         .then

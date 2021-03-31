@@ -10,12 +10,21 @@
             <br><br>
     This is the <%=title%> page for the <%=task.name%>
     <br>
+    <% if(task.leadName){ %> 
+    <label>Task Lead: <%=task.leadName %>  </label>
+    <% }else{ %>
+        <label>Lead:<a href="">Sign Up</a></label>
+        <% } %> 
     <br>
     <label>Description</label>
     <p><%=task.description%></p>
     <br>
+    <br>
+   
+    <br>
     <label>Tasks</label>
     <br>
+   
     
 
  

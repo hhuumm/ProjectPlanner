@@ -17,43 +17,65 @@ module.exports=
 
 function deleteTask(req,res)
 {
-    let id;
-    Task.findByIdAndDelete(req.params.ID)
-    .then(
-        task=>
-            {
+   
+    Task.findById(req.params.ID)
+    .then
+        (
+            task=>
+                {
+                    deleteAll(task)
+                    Task.findByIdAndDelete(task._id)
+                    .then
+                    (
+                        ()=>
+                        {
 
-                deleteAll(task)
-                res.redirect(`/projects/task`)
-
-             
-
-            }
-           
+                            res.redirect(`/projects/task`)
+                        }
+                    )
+                }
+            
         )
 }
 
 function deleteAll(task)
 {
-    
     Task.find({parent:task._id})
     .then
     (
         tasks=>
+        {
+            if(tasks.length>0)
             {
                 tasks.forEach
-                    (
-                        t=>
-                        {
-                            console.log(t)
-                            deleteAll(t)
-                            Task.findByIdAndDelete(t._id)
-                        }
-                    )
-
+                (
+                    t=>
+                    {
+                        deleteAll(t)
+                    }
+                )
             }
-    ).catch(err=>{console.log(err)})
+        }
+    )
+    .then
+    (
+        ()=>
+        {
+            Task.deleteMany({parent:task._id})
+            .then
+            (
+                ()=>
+                {
+                   
+                 return;   
+            
+                }
+            )
+        }
+    )
+    
 
+    
 }
 
 function ShowAll(req,res)
@@ -98,6 +120,7 @@ function Show(req,res)
 function createTask(req,res)
 {
     let id = req.params.ID
+    if(req.body.lead){req.body.lead=req.user._id;req.body.leadName=req.user.name}
 //Find out if the ID is for a task or project
   
     

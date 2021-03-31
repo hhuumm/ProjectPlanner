@@ -5,6 +5,7 @@ const projectSchema = new Schema ({
 name:String,
 description:String,
 lead:mongoose.Schema.Types.ObjectId,
+leadName:String,
 finished:Boolean
 })
 
