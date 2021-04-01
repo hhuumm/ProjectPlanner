@@ -22,8 +22,8 @@
     <br>
 
 
-    <label>Edit:<a href="/projects/task/<%=task._id%>/edit"><%=task.name%>  </a></label>
-   
+    <label><a href="/projects/task/<%=task._id%>/edit">Edit </a></label>
+    <br>
     <br>
     <label>Tasks</label>
     <br>
@@ -37,11 +37,14 @@
  
  
          <%}else{tasks.forEach((t)=>{%>
+            
  
-             <label><a href='/projects/task/<%=t._id%>'><%=t.name%></a> </label><br>
+             <a href='/projects/task/<%=t._id%>'><%=t.name%></a>
+             <br>
  
              <%})}%>
- 
+             <br>
+             <br>
              <a href="/projects/<%=task._id%>/new">Add Task</a>
  
  

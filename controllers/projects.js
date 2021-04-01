@@ -151,7 +151,6 @@ function createProject(req,res)
         )
 }
 
-
 function newProjectPage (req,res)
 {
      res.render('projects/new', {title:"New Project",user:req.user,tasks:[]}) 

@@ -7,18 +7,19 @@
    <br>
    <br>
    <%if(project.lead){%>
-    <label>Project Lead::<%=project.leadName%></label>
+    <label>Project Lead<br><%=project.leadName%></label>
     <%}%>
-    <br>
-   <label>Description</label>
+   <br> <br>
+   Description
    <p><%=project.description%></p>
+<label><a href="/projects/edit/<%=project._id%>">Edit </a></label>
 <br>
 <br>
-<label>Edit:<a href="/projects/edit/<%=project._id%>">Edit </a></label>
+<label>Tasks</label>
 
    <section class="tasks">
     <%if(tasks.length==0){%>
-        <br>There are no tasks!
+        There are no tasks!
 
 
         <%}else{tasks.forEach((task)=>{%>
@@ -27,9 +28,8 @@
 
             <%})}%>
             <br>
-            <br>
-            <br>
             <a href="/projects/<%=project._id%>/new">Add Task</a>
+          
 
 
    </section>

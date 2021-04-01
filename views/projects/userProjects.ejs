@@ -11,7 +11,9 @@
             <%projects.forEach(project=>{%>
     
                 <br><a href='/projects/show/<%=project._id%>'> <%=project.name%>  </a> 
-    
+                <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                  </form>
     
     
     

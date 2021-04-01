@@ -10,6 +10,7 @@
     </style>
   </head>
   <body>
+    <main>
     <nav>
       <ul>
         <% if (user) { %>
@@ -24,7 +25,7 @@
       </ul>
     </nav>
 <main>
-  <h1>hello, <%= user ? user.name : "friend" %></h1>
+  <h1><%= user ? user.name : "Welcome" %></h1>
 </main>
 
 <%if(user){%>
@@ -32,14 +33,19 @@
     
     <a href= "/projects/<%=user._id%>">My Projects</a>
     <br>
+    <br>
     <a href= "/projects/task/user/<%=user._id%>">My Tasks</a>
+    <br>
     <br>
     <a href = "/projects/task">All Tasks </a>
     <br>
+    <br>
     <a href = "/projects">All Projects</a>
+    <br>
     <br>
     <a href="/auth/logout">Log Out</a>
   </section>
   
   <%}%>
+</main>
 <%- include('partials/footer') %>

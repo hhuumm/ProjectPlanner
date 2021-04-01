@@ -73,9 +73,9 @@ function deleteTask(req,res)
     Task.findById(req.params.ID)
     .then
         (
-            async task=>
+            task=>
                 {
-                  await deleteAll(task)
+                   deleteAll(task)
                     Task.findByIdAndDelete(task._id)
                     .then
                     (
@@ -172,6 +172,7 @@ function createTask(req,res)
     let id = req.params.ID
     console.log(req.body.lead)
     if(req.body.lead){req.body.lead=req.user._id;req.body.leadName=req.user.name}
+    req.body.finished=false;
 //Find out if the ID is for a task or project
     Task.create(req.body)
     .then(
