@@ -1,6 +1,7 @@
     const Project = require('../models/project')
     const User = require('../models/user')
     const Task = require('../models/task')
+    const taskController = require('../controllers/tasks')
 
 module.exports= {
     userProjects,
@@ -41,8 +42,24 @@ function deleteProject(req,res)
     Project.findByIdAndDelete(req.params.ID)
     .then
     (
-        ()=>
+        (project)=>
         {
+            Task.find({parent:project._id})
+            .then
+            (
+                (tasks)=>
+                {
+                    tasks.forEach
+                    (
+                        task=>
+                        {
+                            taskController.deleteAll(task)
+                            Task.findByIdAndDelete(task)
+                            .then(()=>{})
+                        }
+                    )
+                }
+            )
             res.redirect('/projects/')
         }
     )

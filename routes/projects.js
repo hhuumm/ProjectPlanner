@@ -3,6 +3,7 @@ const projectController=require('../controllers/projects')
 const taskController = require('../controllers/tasks')
 
 router.get('/show/:ID',isLoggedIn, projectController.Show)
+router.get('/task/user/:ID',isLoggedIn,taskController.userTask)
 router.get('/edit/:ID',isLoggedIn, projectController.edit)
 router.get('/task',isLoggedIn,taskController.ShowAll)
 router.get('/task/:ID',isLoggedIn,taskController.Show)

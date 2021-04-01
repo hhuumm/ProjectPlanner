@@ -1,5 +1,28 @@
-<%- include('partials/header') %>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title><%= title %></title>
+    <style>
+        li{display:inline-block;}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <% if (user) { %>
+        <li>
+        </li>
+        <% } else { %>
+        <li>
+         
+          <a href="/auth/google">Login with Google</a>
+        </li>
+        <% } %>
+      </ul>
+    </nav>
 <main>
   <h1>hello, <%= user ? user.name : "friend" %></h1>
 </main>
@@ -7,12 +30,15 @@
 <%if(user){%>
   <section class="options">
     
-    <a href= "/projects/<%=user._id%>">Projects</a>
+    <a href= "/projects/<%=user._id%>">My Projects</a>
     <br>
-    <a href = "/projects/task"> Tasks </a>
+    <a href= "/projects/task/user/<%=user._id%>">My Tasks</a>
     <br>
-    <a href = "/projects"> Browse All Projects</a>
+    <a href = "/projects/task">All Tasks </a>
     <br>
+    <a href = "/projects">All Projects</a>
+    <br>
+    <a href="/auth/logout">Log Out</a>
   </section>
   
   <%}%>

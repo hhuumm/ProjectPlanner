@@ -17,7 +17,11 @@
 
             <%})%>
         <%}else{%>
-           There are no tasks
+            <% if(title!="All Tasks"){ %> 
+           You have no tasks
+           <% }else{ %>
+            There are no tasks
+            <% } %>  
            <br>
         <%}%>%>
         <br>

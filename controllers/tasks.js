@@ -11,7 +11,21 @@ module.exports=
     ShowAll,
     Delete:deleteTask,
     edit,
-    update
+    update,
+    deleteAll,
+    userTask
+}
+function userTask(req,res)
+{
+    Task.find
+    (
+        {lead:req.user._id},(err,task)=>
+        {    
+            console.log(err)
+            res.render('tasks/allTasks',{title:`${req.user.name}'s Tasks`,tasks:task,user:req.user})
+        }
+    )
+
 }
 
 function edit(req,res)
@@ -39,6 +53,11 @@ function update(req,res)
         req.body.lead=undefined
         req.body.leadName=""
     }
+    if(req.body.finished)
+    {
+        req.body.finished=true;
+    }
+    else{req.body.finished=false;}
     Task.findByIdAndUpdate(req.params.ID,req.body)
     .then((task)=>
         {

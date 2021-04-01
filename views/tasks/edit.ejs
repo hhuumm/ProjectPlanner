@@ -26,6 +26,11 @@
         <%}%> 
       <br>
 
+  <% if(task.finished){ %> 
+        <label>Task Completed <input type="checkbox" checked name ="finished"></label>
+        <% }else{ %> 
+            <label>Task Completed <input type="checkbox" name ="finished"></label>
+        <%}%> 
       <input type="submit" value="Submit Task">
         </form>
 
