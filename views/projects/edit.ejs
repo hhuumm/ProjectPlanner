@@ -1,0 +1,39 @@
+<%- include("../partials/header") %>
+
+<main>
+
+    <form id="new-form" action="/projects/project/<%=project._id%>?_method=PUT" method="POST">
+        <label>Project Name</label><br>
+      <input type="text" name = 'name' value="<%=project.name%>">
+      <br>
+     <label>Description</label>
+     <br>
+      <textarea name="description"
+      rows="10" cols="50"><%=project.description%></textarea>
+      
+  
+      <br>
+      <% if(JSON.stringify(project.lead)===JSON.stringify(user._id)){ %> 
+        <label>Project Leader<input type="checkbox" checked name ="lead"></label>
+        <% }else{ %> 
+            <label>Project Leader<input type="checkbox" name ="lead"></label>
+        <%}%> 
+      <br>
+
+
+      <input type="submit" value="Update Project">
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
+
+<%- include("../partials/footer") %>

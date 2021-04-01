@@ -3,7 +3,7 @@
 
 <main>
   
-   This is the <%=title%> page for the <%=project.name%>
+    <%=project.name%>
    <br>
    <br>
    <%if(project.lead){%>
@@ -12,7 +12,9 @@
     <br>
    <label>Description</label>
    <p><%=project.description%></p>
-
+<br>
+<br>
+<label>Edit:<a href="/projects/edit/<%=project._id%>">Edit </a></label>
 
    <section class="tasks">
     <%if(tasks.length==0){%>

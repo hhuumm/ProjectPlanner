@@ -8,7 +8,32 @@ module.exports= {
     New:newProjectPage,
     createProject,
     Show,
-    Delete:deleteProject
+    Delete:deleteProject,
+    edit,
+    update,
+}
+
+function update(req,res)
+{
+    
+    if(req.body.lead)
+    {
+        req.body.lead=req.user._id
+        req.body.leadName=req.user.name
+    }
+    else
+    {
+        req.body.lead=undefined
+        req.body.leadName=""
+    }
+    Project.findByIdAndUpdate(req.params.ID,req.body)
+    .then((project)=>
+        {
+            res.redirect(`/projects/show/${project._id}`)
+    
+        }
+    )
+
 }
 
 function deleteProject(req,res)
@@ -81,6 +106,17 @@ function Show(req,res)
 
 }   
 
+function edit(req,res)
+{
+    Project.findById(req.params.ID)
+    .then
+    (
+        project=>
+        {
+            res.render('projects/edit',{title:"Edit", project, user:req.user})   
+        }
+    )
+}
 
 function createProject(req,res)
 {

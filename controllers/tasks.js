@@ -1,6 +1,6 @@
-const Project = require('../models/project')
-const User = require('../models/user')
+
 const Task = require('../models/task')
+
 
 
 module.exports=
@@ -9,10 +9,43 @@ module.exports=
     createTask,
     Show,
     ShowAll,
-    Delete:deleteTask
+    Delete:deleteTask,
+    edit,
+    update
+}
 
+function edit(req,res)
+{
+    Task.findById(req.params.ID)
+    .then
+    (
+        task=>
+        {
+           
+            res.render('tasks/edit',{title:"Edit", task, user:req.user})   
+        }
+    )
+}
 
-
+function update(req,res)
+{
+    if(req.body.lead)
+    {
+        req.body.lead=req.user._id
+        req.body.leadName=req.user.name
+    }
+    else
+    {
+        req.body.lead=undefined
+        req.body.leadName=""
+    }
+    Task.findByIdAndUpdate(req.params.ID,req.body)
+    .then((task)=>
+        {
+            res.redirect(`/projects/task/${task._id}`)
+    
+        }
+    )
 }
 
 function deleteTask(req,res)
@@ -21,16 +54,17 @@ function deleteTask(req,res)
     Task.findById(req.params.ID)
     .then
         (
-            task=>
+            async task=>
                 {
-                    deleteAll(task)
+                  await deleteAll(task)
                     Task.findByIdAndDelete(task._id)
                     .then
                     (
                         ()=>
                         {
-
+                            
                             res.redirect(`/projects/task`)
+
                         }
                     )
                 }
@@ -92,9 +126,6 @@ function ShowAll(req,res)
 
 }
 
-
-
-
 function Show(req,res)
 {
     console.log(req.params.ID,"\n^^^Object ID")
@@ -120,10 +151,9 @@ function Show(req,res)
 function createTask(req,res)
 {
     let id = req.params.ID
+    console.log(req.body.lead)
     if(req.body.lead){req.body.lead=req.user._id;req.body.leadName=req.user.name}
 //Find out if the ID is for a task or project
-  
-    
     Task.create(req.body)
     .then(
         task=>
