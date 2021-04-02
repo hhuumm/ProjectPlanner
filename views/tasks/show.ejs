@@ -28,7 +28,7 @@
          There are no sub-tasks!
      <%}else{tasks.forEach((t)=>{%>
         
-        <% if(task.finished){%> 
+        <% if(t.finished){%> 
             <br><a class="completed" href='/projects/task/<%=t._id%>'> <%=t.name%>  </a> 
            <% }else{ %> 
             <br><a class="pending" href='/projects/task/<%=t._id%>'> <%=t.name%>  </a> 

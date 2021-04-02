@@ -68,7 +68,8 @@ function update(req,res)
         req.body.lead=undefined
         req.body.leadName=""
     }
-    if(req.body.finished)
+    console.log(req.body.finished)
+    if(req.body.finished=="on")
     {
         req.body.finished=true;
     }
