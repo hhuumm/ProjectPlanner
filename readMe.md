@@ -11,20 +11,28 @@ Projects and tasks are picked up by other users, and any one task can only be co
 The Project is based on 3 Models::
         User:: With a unique USER ID
         Project:: Also with a unique id, and a reference id to it's project leader
-        Task:: Also with a unique id, lives inside of projects and can be assigned leaders
+        Task:: Also with a unique id, and unique reference to it's task leader as well as task parent
+
 
 For the MVP of this project, AS A USER I SHOULD BE ABLE TO::
         Sign up a project
         Sign up a task
-        Assist on a project
-        Assist on a task
         complete a task
         complete a project
         delete a project
         delete a task
+        update the project leader
+        update the task leader
+
+Heroku:: https://fierce-ridge-01460.herokuapp.com/
+
+
 
 
 Ice Box Goals::
+        Recursive Check on Completed Tasks
+        Assist on a project
+        Assist on a task
         Free Worker QUE
         Help Needed Radio
         Task/Project Discussion Board
