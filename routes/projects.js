@@ -2,6 +2,7 @@ const router = require("express").Router();
 const projectController=require('../controllers/projects')
 const taskController = require('../controllers/tasks')
 
+//Im sorry future teammate, it wont happen again
 router.get('/show/:ID',isLoggedIn, projectController.Show)
 router.get('/task/user/:ID',isLoggedIn,taskController.userTask)
 router.get('/edit/:ID',isLoggedIn, projectController.edit)
@@ -21,7 +22,6 @@ router.put('/task/:ID',isLoggedIn,taskController.update)
 router.delete('/:ID',isLoggedIn,projectController.Delete)
 router.delete('/task/:ID',isLoggedIn,taskController.Delete)
 
-//projects/task/<%=task._id%>/edit"
 
 
 
