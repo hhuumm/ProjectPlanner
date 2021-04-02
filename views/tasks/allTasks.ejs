@@ -10,9 +10,9 @@
         <br><strong><%=title%></strong>
         <%tasks.forEach(task=>{%>
             <% if(task.finished){%> 
-            <br><a class="completed" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
+            <br><a id="bubble" class="completed" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
            <% }else{ %> 
-            <br><a class="pending" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
+            <br><a id="bubble" class="pending" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
             <% } %> 
             
 

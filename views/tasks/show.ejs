@@ -7,20 +7,20 @@
     <a class ="parent" href ='/projects/show/<%=task.parent%>'>Parent</a>        
     <br>
     <br>
-    Task:  <%=task.name%>
+   <strong> Task:</strong>  <%=task.name%>
     <br>
     <br>
     <% if(task.leadName){ %> 
-    Task Lead:  <%=task.leadName %>
+    <strong>Task Lead:</strong>  <%=task.leadName %>
     <% }else{ %>
         <label>Lead:  <a href="/projects/<%=task._id%>/taskSignUp">Sign Up</a></label>
         <% } %> 
     <br>
     <br>
-    Description:
+    <strong>Description:</strong>
     <br><tab></tab><%=task.description%>
     <br><br>
-    <label>Tasks</label>
+    <label><strong>Tasks</strong></label>
     
     <section >
      <%if(tasks.length==0){%>
@@ -29,9 +29,10 @@
      <%}else{tasks.forEach((t)=>{%>
         
         <% if(t.finished){%> 
-            <br><a class="completed" href='/projects/task/<%=t._id%>'> <%=t.name%>  </a> 
+            <br><a id="bubble" class="completed" href='/projects/task/<%=t._id%>'> <%=t.name%>  </a> 
            <% }else{ %> 
-            <br><a class="pending" href='/projects/task/<%=t._id%>'> <%=t.name%>  </a> 
+            <br>
+            <a id="bubble" class="pending" href='/projects/task/<%=t._id%>'> <%=t.name%>  </a> 
             <% } %> 
              <br>
              <%})}%>
@@ -39,7 +40,7 @@
     </section>
 <br><br>
 <% if(JSON.stringify(task.lead)===JSON.stringify(user._id)){%>
-    <tab></tab><tab></tab><a href="/projects/task/<%=task._id%>/edit">Edit </a>
+    <br><br><a href="/projects/task/<%=task._id%>/edit">Edit </a>
     <br>
     <tab></tab><tab></tab><a class="center" href="/projects/<%=task._id%>/new">Add Task</a>
     <% } %> 

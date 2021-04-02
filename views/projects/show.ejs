@@ -2,30 +2,31 @@
 
 <div class="card">
   <br>
-  Project Name:   <%=project.name%> <br>  
+ <strong> Project Name:</strong>   <%=project.name%> <br>  
    <%if(project.lead){%>
-    <br><label>Project Lead:<%=project.leadName%></label>
+    <br><label><strong>Project Lead:</strong><%=project.leadName%></label>
     <%}else{ %>
         <label>Lead:<a href="/projects/<%=project._id%>/signUp">Sign Up</a></label>
         <% } %> 
    <br> <br>
-   Description
+   <strong>Description</strong>
    <br>
    <%=project.description%>
 <br>
 <br>
 
    <section class="tasks">
-    Tasks
+    <strong>Tasks</strong>
     <%if(tasks.length==0){%>
        <br>There are no tasks!
         <%}else{tasks.forEach((task)=>{%>
             <% if(task.finished){%> 
-                <br><a class="completed" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
+                <br><a id="bubble" class="completed" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
                <% }else{ %> 
-                <br><a class="pending" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
+                <br><a id="bubble" class="pending" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
                 <% } %> 
             <%})}%>
+           <br>
            <br>
            <% if(JSON.stringify(project.lead)===JSON.stringify(user._id)){%>
                 <a href="/projects/edit/<%=project._id%>">Edit </a>
