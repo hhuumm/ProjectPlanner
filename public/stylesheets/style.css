@@ -12,10 +12,17 @@ html{
 }
 
 a{text-decoration: none;}  
-
+.pending
+{
+  color:rgba(230, 72, 72, 1)
+}
+.completed
+{
+  color:rgb(29, 205, 35)
+}
 .card
 {position:relative;
-  margin-left:40%;
+  margin-left:30%;
   text-align:center;
   width:35%;
   background:rgba(255, 255, 255,.8);
@@ -33,6 +40,12 @@ margin-top:5%;
   position:fixed;
   margin-left:2%;
 }
+.parent
+{
+  position:absolute;
+  left:0;
+  top:5px;
+}
 
 main
 {
@@ -45,12 +58,10 @@ a {
   margin-top:5px;
   color: #00B7FF;
 }
-img:hover{
+#bubble:hover{
   font-size: larger;
 }
-a:hover{
-  font-size:large;
-}
+
 
 a
 tab{

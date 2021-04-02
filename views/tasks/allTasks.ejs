@@ -7,10 +7,13 @@
   
     <br>
     <%if(tasks.length>0){%>
-        <br><%=title%>
+        <br><strong><%=title%></strong>
         <%tasks.forEach(task=>{%>
-
-            <br><a href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
+            <% if(task.finished){%> 
+            <br><a class="completed" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
+           <% }else{ %> 
+            <br><a class="pending" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
+            <% } %> 
             
 
             <%})%>

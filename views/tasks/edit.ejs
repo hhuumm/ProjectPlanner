@@ -5,13 +5,10 @@
 
 
     <form id="new-form" action="/projects/task/<%=task._id%>?_method=PUT" method="POST">
-        <label>task Name</label>
+        <label>Task Name</label>
         <br>
         <input type="text" name = 'name' value="<%=task.name%>" >
         <br>
-        <label>Parent ID:</label>
-        <label name="parent"><%=task.parent%></label>
-      
       <br>
      <label>Description</label>
      <br>

@@ -31,19 +31,19 @@
 <%if(user){%>
   <section class="options">
     
-    <a href= "/projects/<%=user._id%>">My Projects</a>
+    <a id="bubble" href= "/projects/<%=user._id%>">My Projects</a>
     <br>
     <br>
-    <a href= "/projects/task/user/<%=user._id%>">My Tasks</a>
+    <a id="bubble" href= "/projects/task/user/<%=user._id%>">My Tasks</a>
     <br>
     <br>
-    <a href = "/projects/task">All Tasks </a>
+    <a id="bubble" href = "/projects/task">All Tasks </a>
     <br>
     <br>
-    <a href = "/projects">All Projects</a>
+    <a id="bubble" href = "/projects">All Projects</a>
     <br>
     <br>
-    <a href="/auth/logout">Log Out</a>
+    <a id="bubble" href="/auth/logout">Log Out</a>
   </section>
   
   <%}%>

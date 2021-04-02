@@ -20,9 +20,11 @@
     <%if(tasks.length==0){%>
        <br>There are no tasks!
         <%}else{tasks.forEach((task)=>{%>
-            <br><tab></tab>
-            <a href="/projects/task/<%=task._id%>"><%=task.name%></a>
-
+            <% if(task.finished){%> 
+                <br><a class="completed" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
+               <% }else{ %> 
+                <br><a class="pending" href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
+                <% } %> 
             <%})}%>
            <br>
            <% if(JSON.stringify(project.lead)===JSON.stringify(user._id)){%>
