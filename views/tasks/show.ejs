@@ -23,20 +23,21 @@
     <label><strong>Tasks</strong></label>
     
     <section >
+     
      <%if(tasks.length==0){%>
          
          There are no sub-tasks!
      <%}else{tasks.forEach((t)=>{%>
         
         <% if(t.finished){%> 
-            <br><a id="bubble" class="completed" href='/projects/task/<%=t._id%>'> <%=t.name%>  </a> 
+            <a id="bubble" class="completed" href='/projects/task/<%=t._id%>'> <%=t.name%>  </a> 
            <% }else{ %> 
-            <br>
+            
             <a id="bubble" class="pending" href='/projects/task/<%=t._id%>'> <%=t.name%>  </a> 
             <% } %> 
-             <br>
+            
+            <br>
              <%})}%>
-             <br>
     </section>
 <br><br>
 <% if(JSON.stringify(task.lead)===JSON.stringify(user._id)){%>
