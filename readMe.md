@@ -16,36 +16,41 @@ The Project is based on 3 Models::
 
 # AAU #
 For the MVP of this project, AS A USER I SHOULD BE ABLE TO::
-        Sign up a project
-        Sign up a task
-        complete a task
-        complete a project
-        delete a project
-        delete a task
-        update the project leader
-        update the task leader
+
+       * Sign up a project
+       * Sign up a task
+       * complete a task
+       * complete a project
+       * delete a project
+       * delete a task
+       * update the project leader
+       * update the task leader
 
 # Trello #
 https://trello.com/b/NSyXvOAb/programs
 
-#Screen Shots
+# Screen Shots #
+
+# Logged In Page #
 ![Image 1 did not show](https://imgur.com/yXRidhK.png)
+# Project Page #
 ![Image 2 did not show](https://imgur.com/MGPY4jC.png)
+# All tasks #
 ![Image 2 did not show](https://imgur.com/Mm3eNZp.png)
 
 
 
-#Heroku#
+# Heroku Link#
 https://fierce-ridge-01460.herokuapp.com/
 
 
 
 
 # Ice Box Goals #
-        Recursive Check on Completed Tasks
-        Assist on a project
-        Assist on a task
-        Free Worker QUE
-        Help Needed Radio
-        Task/Project Discussion Board
-        Task Assignment
+       * Recursive Check on Completed Tasks
+       * Assist on a project
+       * Assist on a task
+       * Free Worker QUE
+       * Help Needed Radio
+       * Task/Project Discussion Board
+       * Task Assignment
