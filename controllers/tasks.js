@@ -13,7 +13,22 @@ module.exports=
     edit,
     update,
     deleteAll,
-    userTask
+    userTask,
+    signUp
+}
+function signUp(req,res)
+{
+    Task.findById(req.params.ID)
+    .then
+    (
+        task=>
+        {
+            task.lead=req.user._id
+            task.leadName=req.user.name 
+            Task.findByIdAndUpdate(task._id,task).
+            then((task)=>{res.redirect(`/projects/task/${task._id}`)})
+        }
+    )
 }
 function userTask(req,res)
 {

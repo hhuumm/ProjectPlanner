@@ -7,13 +7,11 @@
   
     <br>
     <%if(tasks.length>0){%>
-        <br>All Tasks::
+        <br><%=title%>
         <%tasks.forEach(task=>{%>
 
-            <br>Task Name::<a href='task/<%=task._id%>'> <%=task.name%>  </a> 
-            <form action="/projects/task/<%= task._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
-              </form>
+            <br><a href='/projects/task/<%=task._id%>'> <%=task.name%>  </a> 
+            
 
             <%})%>
         <%}else{%>

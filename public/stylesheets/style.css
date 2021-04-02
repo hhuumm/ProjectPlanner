@@ -1,10 +1,77 @@
-body {
+html{
+  background-image: url(https://previews.123rf.com/images/gbuglok/gbuglok1203/gbuglok120300011/12758539-colored-fineliners-on-architectural-project-background.jpg)
+}
+.nav {
+  position: fixed;
+  display:flex;
+  justify-content: space-around;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background:rgba(255,255,255,.8);
+}
 
+a{text-decoration: none;}  
+
+.card
+{position:relative;
+  margin-left:40%;
+  text-align:center;
+  width:35%;
+  background:rgba(255, 255, 255,.8);
+}
+body {
+margin-top:5%;
 
 }
 
-main{text-align: center;}
+.index
+{margin-top:0%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position:fixed;
+  margin-left:2%;
+}
+
+main
+{
+  text-align:center;
+  background:rgba(255,255,255,.9);
+  width:100%;
+}
 
 a {
+  margin-top:5px;
   color: #00B7FF;
+}
+img:hover{
+  font-size: larger;
+}
+a:hover{
+  font-size:large;
+}
+
+a
+tab{
+  margin-left: 15%;
+}
+.icon
+{
+  height:35px;
+  width:50px;
+}
+
+.container
+{
+  text-align: center;
+  margin-left:0;
+  width:100%;
+  background:rgba(255,255,255,.65);
+  
+}
+.indent
+{
+  margin-left:20%;
+ 
 }

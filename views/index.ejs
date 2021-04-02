@@ -9,7 +9,7 @@
         li{display:inline-block;}
     </style>
   </head>
-  <body>
+  <body class="index">
     <main>
     <nav>
       <ul>
@@ -25,7 +25,7 @@
       </ul>
     </nav>
 <main>
-  <h1><%= user ? user.name : "Welcome" %></h1>
+  <h1><%if(user){%><img class="icon" src="<%=user.avatar%>"> <%}else{%> Welcome! <% } %>  </h1>
 </main>
 
 <%if(user){%>

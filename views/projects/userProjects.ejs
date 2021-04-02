@@ -2,16 +2,16 @@
 
 
 <main>
+    <br><br>
     <%=user.name%>'s Projects Page!
-    
+    <br><br>
   
         <br>
         <%if(projects.length>0){%>
             <br><%=user.name%>'s Projects::
             <%projects.forEach(project=>{%>
-    
-                <br><a href='/projects/show/<%=project._id%>'> <%=project.name%>  </a> 
                 <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
+                    <a href='/projects/show/<%=project._id%>'> <%=project.name%>  </a> 
                     <button type="submit">X</button>
                   </form>
     
@@ -24,7 +24,7 @@
             <%}%>%>
             <br><br><br>
             <a href="/projects/new">New Project</a>
-    
+            </main>
         
     
     

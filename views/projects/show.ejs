@@ -1,40 +1,41 @@
 <%- include('../partials/header') %>
 
-
-<main>
-  
-    <%=project.name%>
-   <br>
-   <br>
+<div class="card">
+  <br>
+  Project Name:   <%=project.name%> <br>  
    <%if(project.lead){%>
-    <label>Project Lead<br><%=project.leadName%></label>
-    <%}%>
+    <br><label>Project Lead:<%=project.leadName%></label>
+    <%}else{ %>
+        <label>Lead:<a href="/projects/<%=project._id%>/signUp">Sign Up</a></label>
+        <% } %> 
    <br> <br>
    Description
-   <p><%=project.description%></p>
-<label><a href="/projects/edit/<%=project._id%>">Edit </a></label>
+   <br>
+   <%=project.description%>
 <br>
 <br>
-<label>Tasks</label>
 
    <section class="tasks">
+    Tasks
     <%if(tasks.length==0){%>
-        There are no tasks!
-
-
+       <br>There are no tasks!
         <%}else{tasks.forEach((task)=>{%>
-
-            <label><a href="/projects/task/<%=task._id%>"><%=task.name%></a></label><br>
+            <br><tab></tab>
+            <a href="/projects/task/<%=task._id%>"><%=task.name%></a>
 
             <%})}%>
-            <br>
+           <br>
+           <% if(JSON.stringify(project.lead)===JSON.stringify(user._id)){%>
+                <a href="/projects/edit/<%=project._id%>">Edit </a>
+                <br>
             <a href="/projects/<%=project._id%>/new">Add Task</a>
-          
 
-
+            <%}%>
    </section>
+  
 
-    </main>
+</div>
+
 
 
 

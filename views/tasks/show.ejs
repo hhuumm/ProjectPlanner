@@ -2,55 +2,43 @@
 
 
 
-<main>
-        
-        <a href ='/projects/show/<%=task.parent%>'>Parent</a>
-          
-       
-            <br><br>
-    This is the <%=title%> page for the <%=task.name%>
+
+<div class="container">
+    <a class ="parent" href ='/projects/show/<%=task.parent%>'>Parent</a>        
+    <br>
+    <br>
+    Task:
+    <br><tab></tab><%=task.name%>
     <br>
     <% if(task.leadName){ %> 
-    <label>Task Lead: <%=task.leadName %>  </label>
+    Task Lead:<br><tab></tab> <%=task.leadName %>
     <% }else{ %>
-        <label>Lead:<a href="">Sign Up</a></label>
+        <label>Lead:<a href="/projects/<%=project._id%>/taskSignUp">Sign Up</a></label>
         <% } %> 
     <br>
-    <label>Description</label>
-    <p><%=task.description%></p>
-    <br>
-    <br>
-
-
-    <label><a href="/projects/task/<%=task._id%>/edit">Edit </a></label>
+    Description:
+    <br><tab></tab><%=task.description%>
     <br>
     <br>
     <label>Tasks</label>
-    <br>
-   
     
-
- 
     <section >
      <%if(tasks.length==0){%>
-         <br>There are no sub-tasks!
- 
- 
-         <%}else{tasks.forEach((t)=>{%>
-            
- 
-             <a href='/projects/task/<%=t._id%>'><%=t.name%></a>
+         
+         There are no sub-tasks!
+     <%}else{tasks.forEach((t)=>{%>
+             <tab></tab><a href='/projects/task/<%=t._id%>'><%=t.name%></a>
              <br>
- 
              <%})}%>
              <br>
-             <br>
-             <a href="/projects/<%=task._id%>/new">Add Task</a>
- 
- 
     </section>
- 
-     </main>
+
+<% if(JSON.stringify(task.lead)===JSON.stringify(user._id)){%>
+    <tab></tab><tab></tab><a href="/projects/task/<%=task._id%>/edit">Edit </a>
+    <br>
+    <tab></tab><tab></tab><a class="center" href="/projects/<%=task._id%>/new">Add Task</a>
+    <% } %> 
+</div>
 
 
 

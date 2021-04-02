@@ -12,6 +12,22 @@ module.exports= {
     Delete:deleteProject,
     edit,
     update,
+    signUp
+}
+
+function signUp(req,res)
+{
+    Project.findById(req.params.ID)
+    .then
+    (
+        proj=>
+        {
+            proj.lead=req.user._id
+            proj.leadName=req.user.name 
+            Project.findByIdAndUpdate(proj._id,proj).
+            then((proj)=>{res.redirect(`/projects/show/${proj._id}`)})
+        }
+    )
 }
 
 function update(req,res)
@@ -60,7 +76,7 @@ function deleteProject(req,res)
                     )
                 }
             )
-            res.redirect('/projects/')
+            res.redirect(`/projects/${req.user._id}`)
         }
     )
 
@@ -68,18 +84,17 @@ function deleteProject(req,res)
 
 function Show(req,res)
 {
-    //Check and see if we have a project with this ID
+    //Check and see if we have a taskParent with this ID
    Task.count({_id:req.params.ID})
    .then
    (
         count=>
         {
-            //If no project
+            //If no parent
             if(count>0)
             {   //Check and see if we have tasks with this ID
                 //Go to task
                 res.redirect(`/projects/task/${req.params.ID}`) 
-                
             }
 
         }

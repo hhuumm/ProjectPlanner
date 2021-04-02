@@ -19,10 +19,12 @@
             <label>Project Leader<input type="checkbox" name ="lead"></label>
         <%}%> 
       <br>
-
-
       <input type="submit" value="Update Project">
-
+      <br>
+        </form>
+      <form action="/projects/<%= project._id%>?_method=DELETE" method="POST">
+        <button type="submit">X</button>
+      </form>
 
 
 </main>
