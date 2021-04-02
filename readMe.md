@@ -2,7 +2,7 @@
 
 A GA UNIT 2 PROJECT using Mongoose,MongoDB,Express and EJS
 
-#Idea#
+# Idea #
 The Idea is that every project consists of tasks, and each task can be broken down into more tasks,
 
 Projects and tasks are picked up by other users, and any one task can only be complete when it's children tasks are also complete
@@ -20,7 +20,6 @@ For the MVP of this project, AS A USER I SHOULD BE ABLE TO::
        * Sign up a project
        * Sign up a task
        * complete a task
-       * complete a project
        * delete a project
        * delete a task
        * update the project leader
@@ -47,10 +46,12 @@ https://fierce-ridge-01460.herokuapp.com/
 
 
 # Ice Box Goals #
-       * Recursive Check on Completed Tasks
+       * Recursive Check Completed Tasks
+       * Project Completion prompt post Task recursive check
        * Assist on a project
        * Assist on a task
        * Free Worker QUE
        * Help Needed Radio
        * Task/Project Discussion Board
        * Task Assignment
+  
