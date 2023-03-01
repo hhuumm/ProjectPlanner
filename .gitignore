@@ -1,0 +1,17 @@
+# Ignore all files with a .log extension
+*.log
+
+# Ignore the node_modules directory
+node_modules/
+
+# Ignore files in the build directory
+build/
+
+# Ignore the .env file, which may contain sensitive information
+.env
+
+# Ignore backup files created by text editors
+*~
+
+# Ignore files in the .idea directory (used by JetBrains IDEs)
+.idea/
