@@ -6,6 +6,13 @@ html{
   background-image: url(https://previews.123rf.com/images/gbuglok/gbuglok1203/gbuglok120300011/12758539-colored-fineliners-on-architectural-project-background.jpg);
   background-size: cover;
 }
+.btn{
+  margin-top:1rem;
+
+}
+.new{
+  margin-bottom:2rem;
+}
 .nav-link
 {
   margin-top:1rem;
