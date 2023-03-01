@@ -185,7 +185,7 @@ function All(req,res){
     Project.find({})
     .then((projects)=>
     {
-       
+       console.log(req.user);
         res.render('projects/allProjects',{title:"All Projects",user:req.user,projects})
         
     })
