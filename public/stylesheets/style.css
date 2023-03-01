@@ -15,7 +15,7 @@ html{
 }
 .nav-link
 {
-  margin-top:1rem;
+  margin:5 0 0 0;
 }
 .nav {
   position: fixed;
@@ -76,6 +76,23 @@ a {
   font-size: larger;
 }
 
+#bubble {
+
+  font-size: 1em;
+  font-weight: bold;
+  color: #00B7FF;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  margin: 2rem 0 2rem 0;
+}
+
 
 a
 tab{
@@ -100,3 +117,5 @@ tab{
   margin-left:20%;
  
 }
+
+

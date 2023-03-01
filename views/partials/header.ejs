@@ -15,11 +15,7 @@
    
     <body>
       <nav class="nav">
-        <%if(user){%>
-        <a class="navbar-brand" href="/"><img class="icon" src="<%=user.avatar%>"></a>
-        <%}else{%>
-          <a class="navbar-brand" href="/">Home</a>
-          <%}%>  
+        <a class="navbar-brand" id="bubble" href="/">Home</a>
         <a class="nav-link" id="bubble" href= "/projects/<%=user._id%>">MyProjects</a>
         <a class="nav-link" id="bubble" href= "/projects/task/user/<%=user._id%>">My Tasks</a>
         <a class="nav-link" id="bubble" href = "/projects/task">All Tasks</a>
